@@ -12,8 +12,11 @@ danhsach.ThemSinhVien(
     SinhVien(1203543, "Nguyễn Văn C", datetime.date(2000, 3, 6)))
 danhsach.ThemSinhVien(
     SinhVien(1204324, "Nguyễn Văn D", datetime.date(2000, 1, 12)))
+danhsach.ThemSinhVien(SinhVien(1205721, "Lê Văn D",
+                      datetime.date(1992, 12, 1))),
 
 danhsach.XuatSinhVien()
-# newlist = danhsach.TimSinhVienTheoTen("A")
-# for sv in newlist:
-#     print(sv)
+newList = danhsach.TImSVSinhTruocNgay(datetime.date(2000, 4, 30))
+
+for sv in newList:
+    print(sv)

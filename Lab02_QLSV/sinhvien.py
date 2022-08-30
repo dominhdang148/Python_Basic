@@ -12,10 +12,10 @@ class SinhVien:
     @property
     def maSo(self):
         return self.__maSo
-
+    @property
     def hoTen(self):
         return self.__hoTen
-
+    @property
     def ngaySinh(self):
         return self.__ngaySinh
 
@@ -24,13 +24,13 @@ class SinhVien:
         if self.laMaSoHopLe(maSo):
             self.__maSo = maSo
 
-    # @hoTen.setter
-    # def hoTen(self, hoTen):
-    #     self.__hoTen = hoTen
+    @hoTen.setter
+    def hoTen(self, hoTen):
+        self.__hoTen = hoTen
 
-    # @ngaySinh.setter
-    # def ngaySinh(self, ngaySinh):
-    #     self.__ngaySinh = ngaySinh
+    @ngaySinh.setter
+    def ngaySinh(self, ngaySinh):
+        self.__ngaySinh = ngaySinh
 
     @staticmethod
     def laMaSoHopLe(maso: int):

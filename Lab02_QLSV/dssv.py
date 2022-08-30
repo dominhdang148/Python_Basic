@@ -6,6 +6,9 @@ class DanhSachSV:
     def __init__(self) -> None:
         self.dssv = []
 
+    def ReadFile(self, fileName):
+        
+
     def ThemSinhVien(self, sv: SinhVien):
         self.dssv.append(sv)
 
@@ -31,8 +34,8 @@ class DanhSachSV:
         else:
             return False
 
-    # def TimSinhVienTheoTen(self, ten: str):
-    #     return [sv for sv in self.dssv if sv.hoTen.split(' ')[-1] == ten]
+    def TimSinhVienTheoTen(self, ten: str):
+        return [sv for sv in self.dssv if sv.hoTen.split(' ')[-1].lower() == ten.lower()]
 
     def TImSVSinhTruocNgay(self, ngay: datetime):
-        pass
+        return [sv for sv in self.dssv if sv.ngaySinh < ngay]
