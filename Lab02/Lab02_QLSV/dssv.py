@@ -7,7 +7,16 @@ class DanhSachSV:
         self.dssv = []
 
     def ReadFile(self, fileName):
-        
+        line = "123"
+        with open(fileName, "r", encoding='utf8') as fileReader:
+            while ((line := fileReader.readline()) != ""):
+                str = line.split("*")
+                dateString = str[2].split('/')
+                ngaySinh = datetime.date(int(dateString[-1]), int(
+                    dateString[-2]), int(dateString[-3]))
+                sv = SinhVien(int(str[0]), str[1], ngaySinh)
+                self.ThemSinhVien(sv)
+        fileReader.close()
 
     def ThemSinhVien(self, sv: SinhVien):
         self.dssv.append(sv)
@@ -37,5 +46,13 @@ class DanhSachSV:
     def TimSinhVienTheoTen(self, ten: str):
         return [sv for sv in self.dssv if sv.hoTen.split(' ')[-1].lower() == ten.lower()]
 
-    def TImSVSinhTruocNgay(self, ngay: datetime):
+    def TimSVSinhTruocNgay(self, ngay: datetime):
         return [sv for sv in self.dssv if sv.ngaySinh < ngay]
+
+    def TimTen(self, sv: SinhVien):
+        return sv.hoTen
+
+    # Condition=True --> Sắp xếp theo chiều tăng
+    # Condition=False hoặc không có tham số truyền vào --> Sắp xếp theo chiều giảm
+    def SapXepDSSVTheoTen(self, condition=False):
+        self.dssv.sort(key=self.TimTen, reverse=condition)
