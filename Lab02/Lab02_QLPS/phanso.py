@@ -1,3 +1,6 @@
+import math
+
+
 class PhanSo:
     def __init__(self, tu=0, mau=1):
         self.tu = tu
@@ -16,14 +19,12 @@ class PhanSo:
         return a
 
     def RutGon(self):
-        number = self.__TimUCLN(self.tu, self.mau)
+        # number = self.__TimUCLN(self.tu, self.mau)
         # self.tu = int(self.tu/number)
         # self.mau = int(self.mau/number)
-        self.tu /= number
-        self.mau /= number
-        if self.mau < 0:
-            self.tu *= -1
-            self.mau *= -1
+        number = math.gcd(self.tu, self.mau)
+        self.tu //= number
+        self.mau //= number
 
     def __add__(self, other):
         kq = PhanSo()
@@ -43,12 +44,24 @@ class PhanSo:
         kq = PhanSo()
         kq.tu = self.tu*other.tu
         kq.mau = self.mau*other.mau
-        kq.RutGon()
+        # kq.RutGon()
         return kq
 
     def __truediv__(self, other):
         kq = PhanSo()
         kq.tu = self.tu*other.mau
-        kq.mau = self.mau*other.tu
+        # kq.mau = self.mau*other.tu
         kq.RutGon()
         return kq
+
+    def GetValue(self):
+        return self.tu/self.mau
+
+    def IsSimilar(self, other):
+        return self.tu == other.tu and self.mau == other.mau
+
+    def IsNegative(self):
+        return self.tu/self.mau < 0
+
+    def IsEqual(self, other):
+        return self.GetValue() == other.GetValue()
