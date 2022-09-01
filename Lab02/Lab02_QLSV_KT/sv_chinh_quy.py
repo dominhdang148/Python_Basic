@@ -7,4 +7,4 @@ class SinhVienChinhQuy(SinhVien):
         super().__init__(maSo, hoTen, ngaySinh)
         self.diemRL = diemRL
     def __str__(self)->str:
-        return super().__str__()+f"\t{self.diemRL}"
+        return super().__str__()+f"\t{self.diemRL:>18}"

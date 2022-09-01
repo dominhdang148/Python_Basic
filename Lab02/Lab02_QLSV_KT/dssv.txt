@@ -1,0 +1,8 @@
+CQ*1957690*Trần Văn A*23/6/1999*80
+CQ*1957691*Nguyễn Văn C*5/12/1999*90
+PCQ*1957692*Thái Thị Thu*15/8/1998*Cao đẳng*2
+PCQ*2000324*Trần Thanh Tâm*27/8/2000*Cao đẳng*2
+PCQ*2004544*Nguyễn Thanh Trà*17/5/2000*Trung cấp*2.5
+CQ*2004567*Nguyễn Thành Nam*7/12/1999*60
+PCQ*2004545*Nguyễn Thanh Nam*29/10/1999*Trung cấp*2.5
+CQ*2004679*Võ Hoài Nam*4/1/2000*70

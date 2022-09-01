@@ -11,10 +11,12 @@ class SinhVien:
 
     @property
     def maSo(self):
-        return self.__maSo
+        return self._maSo
+
     @property
     def hoTen(self):
         return self.__hoTen
+
     @property
     def ngaySinh(self):
         return self.__ngaySinh
@@ -22,7 +24,7 @@ class SinhVien:
     @maSo.setter
     def maSo(self, maSo):
         if self.laMaSoHopLe(maSo):
-            self.__maSo = maSo
+            self._maSo = maSo
 
     @hoTen.setter
     def hoTen(self, hoTen):
@@ -41,7 +43,7 @@ class SinhVien:
         self.truong = tenMoi
 
     def __str__(self) -> str:
-        return f"{self.__maSo}\t{self.__hoTen}\t{self.__ngaySinh}"
+        return f"{self._maSo:<10}\t{self.__hoTen:<20}\t{self.__ngaySinh.strftime('%d/%m/%Y'):<20}"
 
     def xuat(self):
-        print(f"{self.__maSo}\t{self.__hoTen}\t{self.__ngaySinh}")
+        print(f"{self._maSo:<10}\t{self.__hoTen:<20}\t{self.__ngaySinh:<50}")
