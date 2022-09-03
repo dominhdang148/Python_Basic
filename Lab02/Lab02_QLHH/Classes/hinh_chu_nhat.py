@@ -35,3 +35,8 @@ class HinhChuNhat(HinhHoc):
     def xuat(self):
         print("Hình chữ nhật chiều dài {}, chiều rộng {} có diện tích {}".format(
             self._canh, self._chieurong, self.TinhDienTich()))
+
+    def __eq__(self, o):
+        if type(o) is not HinhChuNhat:
+            return False
+        return self._canh == o.ChieuDai and self._chieurong == o.ChieuRong
