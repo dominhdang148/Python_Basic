@@ -8,20 +8,6 @@ class DanhSachHinhHoc:
     def __init__(self) -> None:
         self.dshh = []
 
-    def ReadFile(self):
-        line = "123"
-        with open("Data\hh.txt", 'r') as fileReader:
-            while((line := fileReader.readline()) != ""):
-                hh = ""
-                s = line.split(" ")
-                if s[0] == "HV":
-                    hh = HinhVuong(float(s[1]))
-                elif s[0] == "HT":
-                    hh = HinhTron(float(s[1]))
-                elif s[0] == "HCN":
-                    hh = HinhChuNhat(float(s[1]), float(s[2]))
-                self.ThemHinh(hh)
-        fileReader.close()
 
     # region 1. Thêm hình vào danh sách
     def ThemHinh(self, hh: HinhHoc):
@@ -61,8 +47,8 @@ class DanhSachHinhHoc:
     # endregion
 
     # region 6. Sắp xếp tăng giảm theo diện tích
-    def SapXepTangGiamTheoDienTich(self, condition=False):
-        self.dshh.sort(key=self.GetDT, reverse=condition)
+    def SapXepGiamTheoDienTich(self):
+        self.SapXepTangGiamTheoDienTich(True)
     # endregion
 
     # region 7. Đếm số lượng hình theo kiểu cho trước
@@ -76,7 +62,10 @@ class DanhSachHinhHoc:
 
     # region 8. Tính tổng diện tích các hình
     def TinhTongDienTich(self):
-        return self.TinhTongDienTichTheoKieu()
+        sum = 0
+        for hh in self.dshh:
+            sum += hh.TinhDienTich()
+        return sum
     # endregion
 
     # region 9. Tìm hình có diện tích lớn nhất theo kiểu
@@ -124,11 +113,41 @@ class DanhSachHinhHoc:
     # endregion
 
     # region 15. Xuất hình theo chiều tăng giảm
-    def XuatHinhTheoChieuTangGiam(self, loai, condition=True):
+    # Cond mặc định (false): Sắp xếp tăng dần
+    # Cond = True: Sắp xếp giảm dần
+    def XuatHinhTheoChieuTangGiam(self, loai, cond=False):
         result = self.TimHinhTheoKieu(loai)
-        result.SapXepTangGiamTheoDienTich()
+        result.SapXepTangGiamTheoDienTich(cond)
+        return result
+    # endregion
 
-        # region Hàm hỗ trợ
+    # region 16. Tính tổng diện tích hình theo loại
+    def TinhTongDienTichTheoLoai(self, loai):
+        sum = 0
+        for hh in self.dshh:
+            if type(hh) is loai:
+                sum += hh.TinhDienTich()
+        return sum
+    # endregion
+    
+    # region Hàm hỗ trợ
+    def ReadFile(self):
+        line = "123"
+        with open("Data\hh.txt", 'r') as fileReader:
+            while((line := fileReader.readline()) != ""):
+                hh = ""
+                s = line.split(" ")
+                if s[0] == "HV":
+                    hh = HinhVuong(float(s[1]))
+                elif s[0] == "HT":
+                    hh = HinhTron(float(s[1]))
+                elif s[0] == "HCN":
+                    hh = HinhChuNhat(float(s[1]), float(s[2]))
+                self.ThemHinh(hh)
+        fileReader.close()
+
+    def SapXepTangGiamTheoDienTich(self, condition=False):
+        self.dshh.sort(key=self.GetDT, reverse=condition)
 
     def TimDienTichHinhLonNhat(self, hinh=HinhHoc):
         max = -1
@@ -146,13 +165,6 @@ class DanhSachHinhHoc:
 
     def GetDT(self, hh):
         return hh.TinhDienTich()
-
-    def TinhTongDienTichTheoKieu(self, hinh=HinhHoc):
-        sum = 0
-        for hh in self.dshh:
-            if isinstance(hh, hinh):
-                sum += hh.TinhDienTich()
-        return sum
 
     def TimHinhTheoKieu(self, hinh):
         result = DanhSachHinhHoc()

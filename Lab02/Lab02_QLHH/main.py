@@ -7,7 +7,8 @@ ds= DanhSachHinhHoc()
 ds.ReadFile()
 print(ds)
 print("Kết quả là:")
-ds.XoaHinhTheoLoai(HinhChuNhat)
+ds.SapXepGiamTheoDienTich()
+# print(result)
 print(ds)
 
 
