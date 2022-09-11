@@ -1,6 +1,9 @@
-from PIL import Image, ImageTk
 from tkinter import Tk, Label, BOTH
 from tkinter.ttk import Frame, Style
+
+# Để hiển thị ảnh, có thể dùng module PhotoImage trong package Tkinter
+# Tuy nhiên, module này không phổ biến, Module Image và ImageTK trong thư viện Pillow phổ biến hơn.
+from PIL import Image, ImageTk
 
 
 class Example(Frame):
@@ -13,13 +16,23 @@ class Example(Frame):
         self.parent.title("Absolute positioning")
         self.pack(fill=BOTH, expand=1)
 
+        # Tô màu nền cửa sổ là màu xám đen (HEX=#333333)
         Style().configure("TFrame", background="#333")
 
+        # region Tạo các đối tượng ảnh vào tải chúng vào chương trình
         bard = Image.open("cute.jpg")
         bard = bard.resize((100, 100), Image.Resampling.LANCZOS)
+        # endregion
+
         cute = ImageTk.PhotoImage(bard)
+
+        # Tạo đối tượng Label, dùng để hiển thị chữ và ảnh
         label1 = Label(self, image=cute)
+
+        # Phải lưu lại tham chiếu trên ảnh, nếu không sẽ bị xóa
         label1.image = cute
+
+        # Đặt ảnh tại vị trí x=20 và y=20
         label1.place(x=20, y=20)
 
         rot = Image.open("depress.jpg")
