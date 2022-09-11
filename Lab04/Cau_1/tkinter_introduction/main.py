@@ -14,7 +14,7 @@ from tkinter.ttk import Frame, Button, Style
 # Định nghĩa lớp Example kế thừa lớp Frame.
 # Frame là một widget đùng để quản lý các widget khác
 # Các widget tương tự được gọi chung là container hoặc layout
-# Trong phương thức khởi tạo (Constructor), gọi Constructor của Frame và đưa tham số màu nền là màu trắng
+# Trong phương thức khởi tạo (Constructor), gọi Constructor của Frame 
 class Example(Frame):
     def __init__(self, parent):
         Frame.__init__(self, parent)

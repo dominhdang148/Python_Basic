@@ -1,0 +1,8 @@
+# Trong Tkinter có 2 loại widget
+#   1> Widget thường: Các loại nút bấm, textbox, ...
+#   2> Container: Chứa các widget khác. Container còn được gọi là layout
+
+# Trong Tkinter có 3 loại layout:
+#   1> place: Layout tự do (Absolute Positioning) --> Tự quy định vị trí - kích thước của các widget
+#   2> pack: Layout sắp xếp các widget theo chiều ngang - chiều dọc
+#   3> grid: Layout sắp xếp các widget theo dạng bảng
