@@ -1,0 +1,9 @@
+Widget là các thành phần cấu tạo nên một ứng dụng GUI.
+Widget rất đa dạng, có một số widget quan trọng cần phải có của bất kì nền tảng nào (kể cả Tkinter) như Button, Checkbox hay scroll bar
+Ngoài ra, lập trình viên còn có thể tùy chỉnh widget của riêng mình
+
+Một số widget cơ bản:
+    1> CheckButton: Widget hiển thị hộp đánh dấu
+    2> Label: Widget hiển thị text hoặc hình ảnh
+    3> Scale: Widget hiển thị thanh cuộn gắn với 1 khoảng giá trị
+    4> Listbox: Cho phép hiển thị 1 danh sách các item.
