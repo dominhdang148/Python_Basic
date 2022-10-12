@@ -30,7 +30,6 @@ class DanhSachHinhHoc:
     # endregion
 
     # region 3. Tìm hình có diện tích lớn nhất -> DanhSachHinhHoc
-
     def TimHinhCoDienTichLonNhat(self):
         return self.TimHinhCoDienTich(self.TimDienTichHinhLonNhat())
     # endregion
